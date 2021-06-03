@@ -1,0 +1,19 @@
+name: SimpleMessages
+main: me.PixelStudios.SimpleMessages.Main
+version: 2.1
+author: PixelStudios
+api-version: 1.16
+prefix: SimpleMessages
+
+commands:
+  message:
+    description: Message a player.
+    usage: /message <player> <message>
+    aliases:
+      - msg
+  reply:
+    description: Reply to a player.
+    aliases:
+      - r
+      - re
+      - rep
