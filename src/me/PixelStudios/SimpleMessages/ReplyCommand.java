@@ -33,7 +33,10 @@ public class ReplyCommand implements CommandExecutor {
 
 
                 Player res = Bukkit.getPlayer(uuid);
-                Bukkit.getLogger().severe(res.getName());
+                if(res == null) {
+                    player.sendMessage(ChatColor.RED + "Looks like the player is not online");
+                    return true;
+                }
                 if (args.length == 0) {
                     player.sendMessage(ChatColor.RED + "Whoops, you need a message.");
                     return true;
