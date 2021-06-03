@@ -15,7 +15,7 @@ import java.util.UUID;
 public class ReplyCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-        if(label.equalsIgnoreCase("reply") || label.equalsIgnoreCase("r") || label.equalsIgnoreCase("re")) {
+        if (label.equalsIgnoreCase("reply") || label.equalsIgnoreCase("r") || label.equalsIgnoreCase("re")) {
             if (sender instanceof Player) {
                 Player player = (Player) sender;
                 if (!Main.hashMap.containsKey(player.getUniqueId())) {
@@ -33,13 +33,13 @@ public class ReplyCommand implements CommandExecutor {
 
 
                 Player res = Bukkit.getPlayer(uuid);
-                if(res == null) {
+                if (res == null) {
                     player.sendMessage(ChatColor.RED + "Looks like the player is not online");
                     return true;
                 }
                 if (args.length == 0) {
-                    player.sendMessage(ChatColor.RED + "Whoops, you need a message.");
-                    return true;
+                    player.sendMessage(ChatColor.RED + "Whoops, you need a message. Here's the usage");
+                    return false;
                 }
                 StringBuilder message = new StringBuilder();
                 for (int i = 0; i < args.length; i++) {
@@ -54,6 +54,6 @@ public class ReplyCommand implements CommandExecutor {
                 res.playSound(res.getLocation(), Sound.BLOCK_NOTE_BLOCK_PLING, 1f, 1f);
             }
         }
-        return false;
+        return true;
     }
 }

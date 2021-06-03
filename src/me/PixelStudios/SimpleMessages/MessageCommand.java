@@ -20,12 +20,12 @@ public class MessageCommand implements CommandExecutor {
             }
             Player player = (Player) sender;
             if(args.length == 0) {
-                sender.sendMessage(ChatColor.RED + "Supply a player.");
-                return true;
+                sender.sendMessage(ChatColor.RED + "Supply a player. Here's the usage");
+                return false;
             }
             if(args.length == 1) {
-                sender.sendMessage(ChatColor.RED + "You need a message.");
-                return true;
+                sender.sendMessage(ChatColor.RED + "You need a message. Here's the usage");
+                return false;
             }
             Player target = Bukkit.getPlayer(args[0]);
             if(target == null) {
@@ -52,6 +52,6 @@ public class MessageCommand implements CommandExecutor {
             return true;
 
         }
-        return false;
+        return true;
     }
 }
